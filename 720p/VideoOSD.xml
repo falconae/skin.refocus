@@ -59,7 +59,6 @@
 						<label>$LOCALIZE[31327]</label>
 						<onclick>NextSubtitle</onclick>
 						<include>dialog_MenuButton</include>
-						<visible>VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled</visible>
 					</control>
 					<!--subtitles toggle-->
 					<control type="togglebutton" id="606">
