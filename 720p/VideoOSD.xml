@@ -52,7 +52,6 @@
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>ActivateWindow(SubtitleSearch)</onclick>
 						<include>dialog_MenuButton</include>
-						<enable>!VideoPlayer.Content(LiveTV)</enable>
 					</control>
 					<!--next subtitles-->
 					<control type="button" id="605">
@@ -144,8 +143,66 @@
 						<height>20</height>
 						<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
 					</control>
+					<!-- inserting refocus progress bar here -->
+					<control type="group">
+						<left>0</left>
+						<top>5</top>
+						<!--adding the progress bar to the OSD made the bar thicker and cache blue for visibility-->
+						<control type="progress" id="12">
+							<width>322</width>
+							<height>32</height>
+							<reveal>True</reveal>
+							<texturebg>player/progress_Background2.png</texturebg>
+							<lefttexture>-</lefttexture>
+							<midtexture>player/progress_background_blu.png</midtexture>
+							<righttexture>-</righttexture>
+							<info>Player.ProgressCache</info>
+						</control>
+						<control type="slider">
+							<left>-10</left>
+							<width>342</width>
+							<height>32</height>
+							<sliderwidth>322</sliderwidth>
+							<sliderheight>32</sliderheight>
+							<texturesliderbar>player/progress_Opaque.png</texturesliderbar>
+							<textureslidernib colordiffuse="Color3">player/progress_Slider.png</textureslidernib>
+							<textureslidernibfocus colordiffuse="Color1">player/progress_Slider.png</textureslidernibfocus>
+							<info>Player.Progress</info>
+							<action>seek</action>
+						</control>
+						<control type="group">
+							<left>0</left>
+							<top>20</top>
+							<control type="label">
+								<left>0</left>
+								<width>600</width>
+								<label>$VAR[player:Time]</label>
+								<textcolor>Color3</textcolor>
+								<include>detail_Sub</include>
+							</control>
+							<control type="label">
+								<right>0</right>
+								<width>600</width>
+								<label>$VAR[player:Duration]</label>
+								<align>right</align>
+								<textcolor>Color3</textcolor>
+								<include>detail_Sub</include>
+							</control>
+						</control>
+						<control type="group">
+							<top>680</top>
+							<control type="image">
+								<width>screen_Width</width>
+								<height>40</height>
+								<texture>colorize/100.png</texture>
+								<colordiffuse>accent_1</colordiffuse>
+							</control>
+						</control>
+					</control> 
+					<!-- End refocus insert -->
 				</control>
 			</control>
 		</control>
+		
 	</controls>
 </window>
